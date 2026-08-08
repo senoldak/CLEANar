@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "CLEANar - Smart Click & Clean",
+  "version": "1.0.0",
+  "description": "Smart one-click and automatic browser cleaner with Whitelist domain protection.",
+  "permissions": [
+    "browsingData",
+    "storage",
+    "cookies",
+    "alarms",
+    "notifications",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/service_worker.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  }
+}

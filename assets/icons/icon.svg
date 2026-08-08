@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="eraserBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="sleeveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Circle Badge -->
+  <rect x="8" y="8" width="112" height="112" rx="32" fill="url(#eraserBg)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+
+  <!-- Angled Eraser Group -->
+  <g transform="rotate(-35 64 64)">
+    <!-- White Rubber Top -->
+    <rect x="36" y="28" width="56" height="36" rx="6" fill="#ffffff"/>
+    
+    <!-- Blue/Cyan Sleeve Base -->
+    <rect x="36" y="60" width="56" height="40" rx="6" fill="url(#sleeveGrad)"/>
+    
+    <!-- Sleeve Divider Stripe -->
+    <line x1="36" y1="60" x2="92" y2="60" stroke="rgba(0,0,0,0.15)" stroke-width="3"/>
+  </g>
+
+  <!-- Eraser Clean Motion Lines -->
+  <path d="M28 98 L56 98" stroke="#06b6d4" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <path d="M20 106 L44 106" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+</svg>

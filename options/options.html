@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLEANar - Preferences</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body class="theme-dark">
+  <div class="options-wrapper">
+    <!-- Header -->
+    <header class="opt-header">
+      <div class="brand">
+        <svg class="logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m7 21-4-4 10-10 6 6-6 6H7Z"/><path d="M21 21H7"/><path d="m13 7 6 6"/>
+        </svg>
+        <h1>CLEANar Preferences</h1>
+      </div>
+      <p class="opt-subtitle">Configure cookie protection whitelists and background auto-cleanup rules.</p>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="opt-tabs">
+      <button id="tabBtnWhitelist" class="tab-btn active">
+        <svg class="tab-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Cookie Whitelist</span>
+      </button>
+      <button id="tabBtnAutoClean" class="tab-btn">
+        <svg class="tab-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+        <span>Auto-Clean Rules</span>
+      </button>
+    </nav>
+
+    <!-- Tab 1: Whitelist Manager -->
+    <section id="tabWhitelist" class="tab-content active">
+      <div class="card">
+        <div class="card-header">
+          <h3>Protected Domains</h3>
+          <p class="card-desc">Cookies belonging to whitelisted domains are automatically preserved during all manual and background cleanups.</p>
+        </div>
+        
+        <div class="add-domain-bar">
+          <input type="text" id="newDomainInput" placeholder="e.g. google.com or github.com" class="text-input">
+          <button id="addDomainBtn" class="btn-primary">Add Domain</button>
+        </div>
+
+        <div class="domain-filter-bar">
+          <input type="text" id="filterDomainInput" placeholder="Search whitelisted domains..." class="text-input sm">
+        </div>
+
+        <div id="domainTagsContainer" class="tags-container">
+          <!-- Dynamic Domain Chips -->
+        </div>
+
+        <div class="json-actions">
+          <button id="exportJsonBtn" class="btn-secondary">Export JSON</button>
+          <button id="importJsonBtn" class="btn-secondary">Import JSON</button>
+          <input type="file" id="importJsonFileInput" accept=".json" style="display:none">
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 2: Auto-Clean Rules -->
+    <section id="tabAutoClean" class="tab-content">
+      <div class="card">
+        <div class="card-header">
+          <h3>Background Automation</h3>
+          <p class="card-desc">Configure automated background tasks and browser shutdown cleaning rules.</p>
+        </div>
+        
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-title">Enable Periodic Cleaning</span>
+            <span class="setting-desc">Trigger background cleanup on a recurring timer.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="autoCleanEnabled">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row" id="intervalRow">
+          <div class="setting-info">
+            <span class="setting-title">Cleaning Interval</span>
+          </div>
+          <select id="intervalSelect" class="text-input sm">
+            <option value="15">Every 15 Minutes</option>
+            <option value="30">Every 30 Minutes</option>
+            <option value="60">Every 60 Minutes</option>
+            <option value="120">Every 2 Hours</option>
+          </select>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-title">Clean on Browser Close</span>
+            <span class="setting-desc">Trigger automatic cleanup when all Chrome windows close.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="autoCleanOnClose">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-title">System Notifications</span>
+            <span class="setting-desc">Display desktop alert when automated cleanup completes.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="autoCleanNotify">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <button id="saveAutoCleanBtn" class="btn-primary mt">Save Automation Rules</button>
+      </div>
+    </section>
+
+    <div id="toastMessage" class="toast">Preferences saved!</div>
+  </div>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
