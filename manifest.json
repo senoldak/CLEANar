@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "CLEANar - Smart Click & Clean",
-  "version": "1.0.0",
-  "description": "Smart one-click and automatic browser cleaner with Whitelist domain protection.",
+  "version": "1.1.0",
+  "description": "Smart one-click & automatic browser cleaner with Whitelist protection, Panic Button, and Context Menu integration.",
   "permissions": [
     "browsingData",
     "storage",
@@ -10,7 +10,8 @@
     "alarms",
     "notifications",
     "activeTab",
-    "tabs"
+    "tabs",
+    "contextMenus"
   ],
   "host_permissions": [
     "<all_urls>"
@@ -32,5 +33,14 @@
     "16": "assets/icons/icon-16.png",
     "48": "assets/icons/icon-48.png",
     "128": "assets/icons/icon-128.png"
+  },
+  "commands": {
+    "emergency_purge": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "Command+Shift+X"
+      },
+      "description": "Emergency Panic Purge"
+    }
   }
 }

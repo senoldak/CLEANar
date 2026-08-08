@@ -50,6 +50,14 @@ export class WhitelistManager {
       let target = wDomain.toLowerCase();
       if (target.startsWith('.')) target = target.substring(1);
       if (target.startsWith('www.')) target = target.substring(4);
+
+      // Wildcard matching support (e.g., *.example.com or dev.*)
+      if (target.includes('*')) {
+        const regexStr = '^' + target.replace(/\./g, '\\.').replace(/\*/g, '.*') + '$';
+        const regex = new RegExp(regexStr);
+        return regex.test(domain);
+      }
+
       return domain === target || domain.endsWith('.' + target);
     });
   }

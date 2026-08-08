@@ -14,6 +14,8 @@ export const DEFAULT_SETTINGS = {
     enabled: false,
     intervalMinutes: 60,
     onBrowserClose: false,
+    onTabClose: false,
+    tabSuspender: false,
     notifyOnClean: true
   }
 };

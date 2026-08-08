@@ -16,7 +16,7 @@
         </svg>
         <h1>CLEANar Preferences</h1>
       </div>
-      <p class="opt-subtitle">Configure cookie protection whitelists and background auto-cleanup rules.</p>
+      <p class="opt-subtitle">Configure cookie protection whitelists, emergency panic hotkeys, and RAM/Background automation.</p>
     </header>
 
     <!-- Navigation Tabs -->
@@ -27,7 +27,7 @@
       </button>
       <button id="tabBtnAutoClean" class="tab-btn">
         <svg class="tab-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
-        <span>Auto-Clean Rules</span>
+        <span>Automation & Shortcuts</span>
       </button>
     </nav>
 
@@ -35,17 +35,17 @@
     <section id="tabWhitelist" class="tab-content active">
       <div class="card">
         <div class="card-header">
-          <h3>Protected Domains</h3>
-          <p class="card-desc">Cookies belonging to whitelisted domains are automatically preserved during all manual and background cleanups.</p>
+          <h3>Protected Domains & Wildcards</h3>
+          <p class="card-desc">Cookies belonging to whitelisted domains or wildcard rules (e.g. <code>*.google.com</code> or <code>dev.*</code>) are automatically preserved.</p>
         </div>
         
         <div class="add-domain-bar">
-          <input type="text" id="newDomainInput" placeholder="e.g. google.com or github.com" class="text-input">
-          <button id="addDomainBtn" class="btn-primary">Add Domain</button>
+          <input type="text" id="newDomainInput" placeholder="e.g. google.com or *.github.com" class="text-input">
+          <button id="addDomainBtn" class="btn-primary">Add Rule</button>
         </div>
 
         <div class="domain-filter-bar">
-          <input type="text" id="filterDomainInput" placeholder="Search whitelisted domains..." class="text-input sm">
+          <input type="text" id="filterDomainInput" placeholder="Search whitelisted rules..." class="text-input sm">
         </div>
 
         <div id="domainTagsContainer" class="tags-container">
@@ -64,8 +64,13 @@
     <section id="tabAutoClean" class="tab-content">
       <div class="card">
         <div class="card-header">
+          <h3>Emergency Panic Shortcut</h3>
+          <p class="card-desc">Press <code>Ctrl+Shift+X</code> (or <code>Cmd+Shift+X</code> on Mac) at any time to instantly trigger an Emergency Panic Purge.</p>
+        </div>
+
+        <div class="card-header mt">
           <h3>Background Automation</h3>
-          <p class="card-desc">Configure automated background tasks and browser shutdown cleaning rules.</p>
+          <p class="card-desc">Configure automated background tasks and RAM saver routines.</p>
         </div>
         
         <div class="setting-row">
@@ -98,6 +103,28 @@
           </div>
           <label class="switch">
             <input type="checkbox" id="autoCleanOnClose">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-title">Clean on Tab Close</span>
+            <span class="setting-desc">Trigger automatic cleanup whenever any tab is closed.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="autoCleanOnTabClose">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-title">RAM Saver (Tab Suspender)</span>
+            <span class="setting-desc">Automatically discard inactive background sekmeleri to free system memory.</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="autoCleanTabSuspender">
             <span class="slider"></span>
           </label>
         </div>

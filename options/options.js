@@ -55,7 +55,7 @@ async function loadWhitelist(searchQuery = '') {
     removeBtn.addEventListener('click', async () => {
       await WhitelistManager.removeDomain(domain);
       await loadWhitelist(searchQuery);
-      showToast('Domain removed!');
+      showToast('Rule removed!');
     });
 
     tag.appendChild(text);
@@ -71,6 +71,8 @@ async function loadAutoCleanSettings() {
   document.getElementById('autoCleanEnabled').checked = !!autoClean.enabled;
   document.getElementById('intervalSelect').value = String(autoClean.intervalMinutes || 60);
   document.getElementById('autoCleanOnClose').checked = !!autoClean.onBrowserClose;
+  document.getElementById('autoCleanOnTabClose').checked = !!autoClean.onTabClose;
+  document.getElementById('autoCleanTabSuspender').checked = !!autoClean.tabSuspender;
   document.getElementById('autoCleanNotify').checked = !!autoClean.notifyOnClean;
 }
 
@@ -86,7 +88,7 @@ function bindEvents() {
     if (success) {
       input.value = '';
       await loadWhitelist();
-      showToast('Domain added!');
+      showToast('Domain rule added!');
     } else {
       showToast('Invalid domain format.');
     }
@@ -109,6 +111,8 @@ function bindEvents() {
       enabled: document.getElementById('autoCleanEnabled').checked,
       intervalMinutes: Number(document.getElementById('intervalSelect').value),
       onBrowserClose: document.getElementById('autoCleanOnClose').checked,
+      onTabClose: document.getElementById('autoCleanOnTabClose').checked,
+      tabSuspender: document.getElementById('autoCleanTabSuspender').checked,
       notifyOnClean: document.getElementById('autoCleanNotify').checked
     };
 
